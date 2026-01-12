@@ -1,0 +1,47 @@
+{
+  "name": "@proj-airi/frontend-test",
+  "type": "commonjs",
+  "version": "0.8.0-hiring-test",
+  "private": true,
+  "packageManager": "pnpm@10.25.0",
+  "description": "Frontend developer test project based on AIRI platform",
+  "author": {
+    "name": "Frontend Test Project",
+    "email": "test@example.com",
+    "url": "https://example.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "pnpm -r -F @proj-airi/stage-web dev",
+    "dev:web": "pnpm -rF @proj-airi/stage-web run dev",
+    "build": "turbo run build -F=\"./packages/*\" -F=\"./apps/*\"",
+    "build:web": "turbo run build -F @proj-airi/stage-web",
+    "lint": "eslint . --ext .vue,.ts,.js,.jsx,.tsx --fix",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vueuse/core": "^12.5.0",
+    "vue": "^1.1.4",
+    "pinia": "^1.3.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.12.1",
+    "@iconify/utils": "^3.1.0",
+    "@proj-airi/unocss-preset-chromatic": "^1.0.2",
+    "@unocss/preset-mini": "^66.5.11",
+    "@unocss/preset-web-fonts": "^66.5.11",
+    "eslint": "^9.23.0",
+    "pkgroll": "^2.5.1",
+    "tsdown": "^0.17.4",
+    "typescript": "^5.7.3",
+    "unocss": "^66.5.11",
+    "unocss-preset-scrollbar": "^3.2.0",
+    "vite": "^5.1.4",
+    "vue-tsc": "^2.2.0",
+    "turbo": "^2.6.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

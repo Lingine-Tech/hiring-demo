@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.turbo/
+*.tsbuildinfo
+
+# Cache directories
+.cache/
+.vite/
+.nuxt/
+.output/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Test coverage
+coverage/
+
+# Large asset files
+*.zip
+*.vrm
+*.vrma
+
+# Documentation videos (not needed for hiring test)
+docs/**/*.mp4
+docs/**/*.gif
+docs/**/*.webm
+
+# Temporary files
+*.tmp
+*.temp
