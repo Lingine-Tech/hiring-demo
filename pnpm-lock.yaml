@@ -60,6 +60,9 @@ catalogs:
     posthog-js:
       specifier: 1.306.1
       version: 1.306.1
+    unplugin-unused:
+      specifier: ^0.5.6
+      version: 0.5.6
     xsschema:
       specifier: ^0.4.0-beta.10
       version: 0.4.1
@@ -115,7 +118,7 @@ importers:
         version: 2.21.5(typescript@5.9.3)
       tsdown:
         specifier: ^0.17.4
-        version: 0.17.4(oxc-resolver@11.16.2)(synckit@0.11.11)(typescript@5.9.3)(vue-tsc@2.2.12(typescript@5.9.3))
+        version: 0.17.4(oxc-resolver@11.16.2)(synckit@0.11.11)(typescript@5.9.3)(unplugin-unused@0.5.6)(vue-tsc@2.2.12(typescript@5.9.3))
       turbo:
         specifier: ^2.6.3
         version: 2.7.4
@@ -128,6 +131,9 @@ importers:
       unocss-preset-scrollbar:
         specifier: ^3.2.0
         version: 3.2.0(unocss@66.5.12(postcss@8.5.6)(vite@6.4.1(@types/node@25.0.7)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)))
+      unplugin-unused:
+        specifier: 'catalog:'
+        version: 0.5.6
       vite:
         specifier: ^6.2.5
         version: 6.4.1(@types/node@25.0.7)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
@@ -7473,6 +7479,9 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
+  js-tokens@9.0.1:
+    resolution: {integrity: sha512-mxa9E9ITFOt0ban3j6L5MpjwegGz6lBQmM1IJkWeBZGcMxto50+eWdjC/52xDbS2vy0k7vIMK0Fe2wfL9OQSpQ==}
+
   js-yaml@3.14.2:
     resolution: {integrity: sha512-PMSmkqxr106Xa156c2M265Z+FTrPl+oxd/rgOQy2tijQeK5TxQ43psO1ZCwhVOSdnn+RzkzlRz/eY4BgJBYVpg==}
     hasBin: true
@@ -9449,6 +9458,10 @@ packages:
         optional: true
       webpack:
         optional: true
+
+  unplugin-unused@0.5.6:
+    resolution: {integrity: sha512-nuMhConeGhmYRFVvO3ZEJtAo6GrM09UqTJrOjKnTSkyr9zRjjkqN1M+mPZhYMN19+WHBR+JuNmq/gLo/ZajfdQ==}
+    engines: {node: '>=20.19.0'}
 
   unplugin-utils@0.2.5:
     resolution: {integrity: sha512-gwXJnPRewT4rT7sBi/IvxKTjsms7jX7QIDLOClApuZwR49SXbrB1z2NLUZ+vDHyqCj/n58OzRRqaW+B8OZi8vg==}
@@ -13294,7 +13307,7 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 22.19.5
+      '@types/node': 25.0.7
       '@types/responselike': 1.0.3
 
   '@types/command-line-args@5.2.3': {}
@@ -13342,7 +13355,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 22.19.5
+      '@types/node': 25.0.7
 
   '@types/linkify-it@5.0.0': {}
 
@@ -13402,7 +13415,7 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 22.19.5
+      '@types/node': 25.0.7
 
   '@types/stats.js@0.17.4': {}
 
@@ -16424,6 +16437,8 @@ snapshots:
 
   js-tokens@4.0.0: {}
 
+  js-tokens@9.0.1: {}
+
   js-yaml@3.14.2:
     dependencies:
       argparse: 1.0.10
@@ -18487,7 +18502,7 @@ snapshots:
     dependencies:
       muggle-string: 0.4.1
 
-  tsdown@0.17.4(oxc-resolver@11.16.2)(synckit@0.11.11)(typescript@5.9.3)(vue-tsc@2.2.12(typescript@5.9.3)):
+  tsdown@0.17.4(oxc-resolver@11.16.2)(synckit@0.11.11)(typescript@5.9.3)(unplugin-unused@0.5.6)(vue-tsc@2.2.12(typescript@5.9.3)):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -18506,6 +18521,7 @@ snapshots:
       unrun: 0.2.24(synckit@0.11.11)
     optionalDependencies:
       typescript: 5.9.3
+      unplugin-unused: 0.5.6
     transitivePeerDependencies:
       - '@ts-macro/tsc'
       - '@typescript/native-preview'
@@ -18739,6 +18755,13 @@ snapshots:
       vite: 6.4.1(@types/node@25.0.7)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
+
+  unplugin-unused@0.5.6:
+    dependencies:
+      empathic: 2.0.0
+      escape-string-regexp: 5.0.0
+      js-tokens: 9.0.1
+      unplugin: 2.3.11
 
   unplugin-utils@0.2.5:
     dependencies:
