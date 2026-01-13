@@ -76,12 +76,49 @@ function generateSineWavePath(
 
 const fullHeight = computed(() => waveHeight.value + waveAmplitude.value * 2)
 
+// Safe animation duration calculation (prevent division by zero)
+const animationDuration = computed(() => {
+  const speed = props.animationSpeed || 50 // Fallback to default if zero
+  return waveLength.value / speed
+})
+
+// Track if we've already logged an error to prevent console spam
+let hasLoggedMaskError = false
+
 // Using `mask-image` rather than `background-image` here as we cannot directly control SVG's fill color
 const maskImage = computed(() => {
-  const svg = `<svg width="${waveLength.value}" height="${fullHeight.value}" xmlns="http://www.w3.org/2000/svg">
-    <path d="${generateSineWavePath(waveLength.value, fullHeight.value, waveAmplitude.value, waveLength.value, direction.value)}"/>
+  try {
+    const width = Number(waveLength.value)
+    const height = Number(fullHeight.value)
+    const amplitude = Number(waveAmplitude.value)
+
+    // Strict validation to prevent repeated errors
+    if (!Number.isFinite(width) || !Number.isFinite(height) || !Number.isFinite(amplitude)) {
+      return ''
+    }
+    if (width <= 0 || height <= 0) {
+      return ''
+    }
+    if (typeof btoa !== 'function') {
+      return ''
+    }
+
+    // Reset error flag on success
+    hasLoggedMaskError = false
+
+    const svg = `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+    <path d="${generateSineWavePath(width, height, amplitude, width, direction.value)}"/>
   </svg>`
-  return `url(data:image/svg+xml;base64,${btoa(svg)})`
+    return `url(data:image/svg+xml;base64,${btoa(svg)})`
+  }
+  catch (error) {
+    // Only log once to prevent console spam
+    if (!hasLoggedMaskError) {
+      console.error('[AnimatedWave] Failed to generate mask image', error)
+      hasLoggedMaskError = true
+    }
+    return ''
+  }
 })
 
 watch(
@@ -110,7 +147,7 @@ watch(
           maskImage,
           'WebkitMaskImage': maskImage,
           '--wave-translate': `${-waveLength}px`,
-          '--animation-duration': `${waveLength / animationSpeed}s`,
+          '--animation-duration': `${animationDuration}s`,
           'animation-direction': movementDirection === 'left' ? 'normal' : 'reverse',
         }"
       />

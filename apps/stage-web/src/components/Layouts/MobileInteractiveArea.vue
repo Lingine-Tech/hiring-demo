@@ -19,7 +19,7 @@ import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 
 import IndicatorMicVolume from '../Widgets/IndicatorMicVolume.vue'
-import MobileChatHistory from '../Widgets/MobileChatHistory.vue'
+import { ChatHistory } from '@proj-airi/stage-ui/components'  
 import ActionAbout from './InteractiveArea/Actions/About.vue'
 import ActionViewControls from './InteractiveArea/Actions/ViewControls.vue'
 import ViewControlInputs from './ViewControls/Inputs.vue'
@@ -235,7 +235,7 @@ onMounted(() => {
   <div fixed bottom-0 w-full flex flex-col>
     <KeepAlive>
       <Transition name="fade">
-        <MobileChatHistory v-if="!stageViewControlsEnabled" max-w="[calc(100%-3.5rem)]" w-full self-start pl-3 />
+        <ChatHistory v-if="!stageViewControlsEnabled" variant="mobile" :messages="messages" max-w="[calc(100%-3.5rem)]" w-full self-start pl-3 />
       </Transition>
     </KeepAlive>
     <div relative w-full self-end>

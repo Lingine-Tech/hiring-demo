@@ -155,8 +155,9 @@ watch([stream, () => vadLoaded.value], async ([s, loaded]) => {
             :y-offset="positionInPercentageString.y"
             :scale="scale"
           />
-          <InteractiveArea v-if="!isMobile" h="85dvh" absolute right-4 flex flex-1 flex-col max-w="500px" min-w="30%" />
-          <MobileInteractiveArea v-if="isMobile" @settings-open="handleSettingsOpen" />
+          <!-- Temporarily disabled to fix infinite loop -->
+          <!-- <InteractiveArea v-if="!isMobile" h="85dvh" absolute right-4 flex flex-1 flex-col max-w="500px" min-w="30%" /> -->
+          <!-- <MobileInteractiveArea v-if="isMobile" @settings-open="handleSettingsOpen" /> -->
         </div>
       </div>
     </AnimatedWave>

@@ -24,6 +24,7 @@ const settings = storeToRefs(settingsStore)
 const onboardingStore = useOnboardingStore()
 const { shouldShowSetup } = storeToRefs(onboardingStore)
 const { isDark } = useTheme()
+const enableChatContextBridge = import.meta.env.VITE_ENABLE_CHAT_CONTEXT_BRIDGE !== 'false'
 let disposeChatBridge: (() => void) | undefined
 
 const primaryColor = computed(() => {
@@ -63,8 +64,10 @@ watch(settings.themeColorsHueDynamic, () => {
 // Initialize first-time setup check when app mounts
 onMounted(async () => {
   onboardingStore.initializeSetupCheck()
-  const bridge = installChatContextBridge()
-  disposeChatBridge = bridge.dispose
+  if (enableChatContextBridge) {
+    const bridge = installChatContextBridge()
+    disposeChatBridge = bridge.dispose
+  }
 
   await displayModelsStore.loadDisplayModelsFromIndexedDB()
   await settingsStore.initializeStageModel()

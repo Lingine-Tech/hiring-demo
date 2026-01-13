@@ -351,6 +351,16 @@ async function loadModel() {
 
     emits('modelLoaded')
   }
+  catch (error) {
+    console.error('[Live2D Model] Failed to load model:', error)
+    console.error('[Live2D Model] Error details:', {
+      modelSrc: modelSrcRef.value,
+      hasPixiApp: !!pixiApp.value,
+      hasStage: !!pixiApp.value?.stage,
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    })
+  }
   finally {
     modelLoading.value = false
     componentState.value = 'mounted'
