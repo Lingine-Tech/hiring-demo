@@ -653,6 +653,8 @@ importers:
 
   packages/font-cjkfonts-allseto: {}
 
+  packages/font-departure-mono: {}
+
   packages/font-xiaolai: {}
 
   packages/i18n:
@@ -1324,6 +1326,24 @@ importers:
       vue-tsc:
         specifier: ^3.1.8
         version: 3.2.2(typescript@5.9.3)
+
+  packages/unocss-preset-fonts:
+    dependencies:
+      '@proj-airi/font-cjkfonts-allseto':
+        specifier: workspace:^
+        version: link:../font-cjkfonts-allseto
+      '@proj-airi/font-departure-mono':
+        specifier: workspace:^
+        version: link:../font-departure-mono
+      '@proj-airi/font-xiaolai':
+        specifier: workspace:^
+        version: link:../font-xiaolai
+      '@unocss/core':
+        specifier: '>=66'
+        version: 66.5.12
+      '@unocss/preset-web-fonts':
+        specifier: '>=66'
+        version: 66.5.12
 
   packages/vite-plugin-warpdrive:
     dependencies:
