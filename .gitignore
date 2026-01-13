@@ -4,6 +4,7 @@ node_modules/
 
 # Build outputs
 dist/
+!packages/vite-plugin-warpdrive/dist/
 .turbo/
 *.tsbuildinfo
 
