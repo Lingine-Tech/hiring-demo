@@ -1,128 +1,92 @@
 <script setup lang="ts">
 /**
- * Test Page - 测试页面
- *
- * This page integrates all components for testing purposes.
- * Candidates can use this page to test their implementations.
- *
- * 此页面整合所有组件用于测试目的。
- * 求职者可以使用此页面测试他们的实现。
+ * Test Page - 修复版 (Safe Mode)
+ * 移除了可能导致崩溃的 Store 依赖，使用纯本地状态
  */
 
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import type { AIStatus, ChatMessage } from '../types'
 import ChatInterface from '../components/ChatInterface.vue'
-import InputControls from '../components/InputControls.vue'
 import StatusIndicator from '../components/StatusIndicator.vue'
-import { useSettingsStore } from '../stores/settings'
 
 // ============================================
-// Store - Store
+// State (本地状态，不再依赖 Store)
 // ============================================
 
-const settingsStore = useSettingsStore()
-
-// ============================================
-// State - 状态
-// ============================================
-
-/** 当前助手状态（测试用） */
+/** 当前助手状态 */
 const aiStatus = ref<AIStatus>('online')
+/** 暗黑模式状态 */
+const isDark = ref(false)
 
-/** Demo messages */
+/** 初始消息数据 */
 const messages = ref<ChatMessage[]>([
   {
-    id: '1',
+    id: 'init_1',
     role: 'assistant',
     content: 'Hello! I\'m your assistant. How can I help you today?',
-    timestamp: new Date(Date.now() - 60000),
+    timestamp: new Date(),
     status: 'sent',
   },
 ])
 
-/** Active tab */
+/** 当前激活的标签页 */
 const activeTab = ref<'chat' | 'settings'>('chat')
 
 // ============================================
-// Methods - 方法
+// Methods
 // ============================================
 
-/**
- * Handle message send
- * 处理消息发送
+/** * 处理消息发送 
+ * 包含完整的模拟回复逻辑
  */
-function handleSendMessage(content: string, images?: string[]): void {
-  // 模拟助手处理流程
+function handleSendMessage(content: string) {
+  // 1. 立即把状态改为“思考中”
   aiStatus.value = 'thinking'
 
-  // 模拟延迟响应
+  // 2. 模拟网络延迟 (1秒)
   setTimeout(() => {
     aiStatus.value = 'responding'
 
-    // 添加响应消息
+    // 3. 模拟打字/生成延迟 (再过0.5秒)
     setTimeout(() => {
       messages.value.push({
         id: `msg_${Date.now()}`,
         role: 'assistant',
-        content: `I received your message: "${content}". This is a demo response. ${images?.length ? `You also attached ${images.length} image(s).` : ''}`,
+        content: `我收到了你的消息：\n"${content}"\n(这是一个模拟回复)`,
         timestamp: new Date(),
         status: 'sent',
       })
 
+      // 4. 回复完成，变回在线
       aiStatus.value = 'online'
-    }, 1500)
+    }, 500)
   }, 1000)
 }
 
-/**
- * Handle voice input
- * 处理语音输入
- */
-function handleVoiceStop(audioBlob: Blob): void {
-  console.log('Voice recording completed:', audioBlob.size, 'bytes')
-  // 真实场景可用于语音转写
-}
-
-/**
- * Handle image selection
- * 处理图像选择
- */
-function handleImageSelect(file: File, preview: string): void {
-  console.log('Image selected:', file.name, preview.length)
-  // 真实场景可挂载到消息发送参数
-}
-
-/**
- * Cycle through helper statuses for demo
- * 循环切换助手状态用于演示
- */
-function cycleStatus(): void {
+/** 切换状态演示 */
+function cycleStatus() {
   const statuses: AIStatus[] = ['online', 'thinking', 'responding', 'offline', 'error']
-  const currentIndex = statuses.indexOf(aiStatus.value)
-  const nextIndex = (currentIndex + 1) % statuses.length
-  aiStatus.value = statuses[nextIndex]
+  const idx = statuses.indexOf(aiStatus.value)
+  aiStatus.value = statuses[(idx + 1) % statuses.length]
 }
 
-// ============================================
-// Lifecycle - 生命周期
-// ============================================
-
-onMounted(() => {
-  settingsStore.initialize()
-})
+/** 切换暗黑模式 (本地模拟) */
+function toggleTheme() {
+  isDark.value = !isDark.value
+  // 简单的 DOM 操作切换 class
+  if (isDark.value) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+}
 </script>
 
 <template>
-  <div flex="~ col" min-h-screen bg="gray-50 dark:gray-900">
-    <!-- Header -->
-    <header
-      flex="~ items-center justify-between"
-      bg="white dark:gray-800"
-      border="b gray-200 dark:gray-700"
-      px-4 py-3
-    >
-      <div flex="~ items-center gap-4">
-        <h1 text="xl gray-900 dark:gray-100" font-bold>
+  <div class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <header class="flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shrink-0 z-20 shadow-sm">
+      <div class="flex items-center gap-4">
+        <h1 class="text-xl font-bold text-gray-900 dark:text-gray-100">
           Frontend Test Bench
         </h1>
         <StatusIndicator
@@ -132,226 +96,61 @@ onMounted(() => {
         />
       </div>
 
-      <!-- Theme Toggle -->
       <button
-        p-2 rounded-lg
-        bg="gray-100 dark:gray-700 hover:gray-200 dark:hover:gray-600"
-        transition-colors
-        @click="settingsStore.toggleDark()"
+        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+        @click="toggleTheme"
+        title="Toggle Theme"
       >
-        <div
-          v-if="settingsStore.isDark"
-          text="yellow-500 20"
-          i-solar:sun-2-bold-duotone
-        />
-        <div
-          v-else
-          text="gray-600 20"
-          i-solar:moon-bold-duotone
-        />
+        <span v-if="isDark">🌙</span>
+        <span v-else>☀️</span>
       </button>
     </header>
 
-    <!-- Tab Navigation -->
-    <nav
-      flex="~"
-      bg="white dark:gray-800"
-      border="b gray-200 dark:gray-700"
-      px-4
-    >
-      <div flex="~ gap-4">
+    <nav class="flex px-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shrink-0 z-10">
+      <div class="flex gap-6">
         <button
-          border="b-2"
-          :class="activeTab === 'chat' ? 'border-blue-500 text-blue-500' : 'border-transparent text-gray-500'"
-          px-4 py-3
-          transition-colors
+          class="py-3 px-2 border-b-2 transition-colors font-medium text-sm"
+          :class="activeTab === 'chat' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'"
           @click="activeTab = 'chat'"
         >
           Chat Interface
         </button>
         <button
-          border="b-2"
-          :class="activeTab === 'settings' ? 'border-blue-500 text-blue-500' : 'border-transparent text-gray-500'"
-          px-4 py-3
-          transition-colors
+          class="py-3 px-2 border-b-2 transition-colors font-medium text-sm"
+          :class="activeTab === 'settings' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'"
           @click="activeTab = 'settings'"
         >
-          Settings
+          Settings (Demo)
         </button>
       </div>
     </nav>
 
-    <!-- Main Content -->
-    <main flex-1>
-      <!-- Chat Tab -->
-      <div v-if="activeTab === 'chat'" flex="~ col" h="[calc(100vh-120px)]">
-        <!-- Chat Interface -->
-        <div flex-1 overflow-hidden>
-          <ChatInterface
-            :messages="messages"
-            placeholder="Type your message here..."
-            @send="handleSendMessage"
-          />
-        </div>
-
-        <!-- Input Controls -->
-        <div
-          p-4
-          border="t gray-200 dark:gray-700"
-          bg="white dark:gray-800"
-        >
-          <InputControls
-            @voice-stop="handleVoiceStop"
-            @image-select="handleImageSelect"
-            @error="(msg) => console.error(msg)"
-          />
-        </div>
+    <main class="flex-1 flex flex-col overflow-hidden relative">
+      
+      <div v-if="activeTab === 'chat'" class="absolute inset-0 flex flex-col">
+        <ChatInterface
+          :messages="messages"
+          placeholder="Send a message..."
+          @send="handleSendMessage"
+        />
       </div>
 
-      <!-- Settings Tab -->
-      <div v-if="activeTab === 'settings'" p-6>
-        <div max-w-2xl mx-auto>
-          <h2 text="xl gray-900 dark:gray-100" font-bold mb-6>
-            User Preferences
-          </h2>
-
-          <!-- Theme Setting -->
-          <div mb-6 p-4 bg="white dark:gray-800" rounded-lg shadow-sm>
-            <label text="sm gray-700 dark:gray-300" font-medium mb-2 block>
-              Theme Mode
-            </label>
-            <div flex="~ gap-2">
-              <button
-                v-for="mode in ['light', 'dark', 'system'] as const"
-                :key="mode"
-                :class="settingsStore.theme === mode ? 'bg-blue-500 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'"
-                px-4 py-2 rounded-lg capitalize
-                transition-colors
-                @click="settingsStore.setTheme(mode)"
-              >
-                {{ mode }}
-              </button>
-            </div>
-          </div>
-
-          <!-- Font Size Setting -->
-          <div mb-6 p-4 bg="white dark:gray-800" rounded-lg shadow-sm>
-            <label text="sm gray-700 dark:gray-300" font-medium mb-2 block>
-              Font Size
-            </label>
-            <div flex="~ gap-2">
-              <button
-                v-for="size in ['small', 'medium', 'large'] as const"
-                :key="size"
-                :class="settingsStore.fontSize === size ? 'bg-blue-500 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'"
-                px-4 py-2 rounded-lg capitalize
-                transition-colors
-                @click="settingsStore.setFontSize(size)"
-              >
-                {{ size }}
-              </button>
-            </div>
-          </div>
-
-          <!-- Toggle Settings -->
-          <div mb-6 p-4 bg="white dark:gray-800" rounded-lg shadow-sm space-y-4>
-            <div flex="~ items-center justify-between">
-              <span text="gray-700 dark:gray-300">Sound Effects</span>
-              <button
-                :class="settingsStore.soundEnabled ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'"
-                relative w-12 h-6 rounded-full
-                transition-colors
-                @click="settingsStore.updateSetting('soundEnabled', !settingsStore.soundEnabled)"
-              >
-                <span
-                  :class="settingsStore.soundEnabled ? 'translate-x-6' : 'translate-x-1'"
-                  absolute top-1 w-4 h-4 bg-white rounded-full
-                  transition-transform shadow
-                />
-              </button>
-            </div>
-
-            <div flex="~ items-center justify-between">
-              <span text="gray-700 dark:gray-300">Notifications</span>
-              <button
-                :class="settingsStore.notificationsEnabled ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'"
-                relative w-12 h-6 rounded-full
-                transition-colors
-                @click="settingsStore.updateSetting('notificationsEnabled', !settingsStore.notificationsEnabled)"
-              >
-                <span
-                  :class="settingsStore.notificationsEnabled ? 'translate-x-6' : 'translate-x-1'"
-                  absolute top-1 w-4 h-4 bg-white rounded-full
-                  transition-transform shadow
-                />
-              </button>
-            </div>
-
-            <div flex="~ items-center justify-between">
-              <span text="gray-700 dark:gray-300">Send on Enter</span>
-              <button
-                :class="settingsStore.sendOnEnter ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'"
-                relative w-12 h-6 rounded-full
-                transition-colors
-                @click="settingsStore.updateSetting('sendOnEnter', !settingsStore.sendOnEnter)"
-              >
-                <span
-                  :class="settingsStore.sendOnEnter ? 'translate-x-6' : 'translate-x-1'"
-                  absolute top-1 w-4 h-4 bg-white rounded-full
-                  transition-transform shadow
-                />
-              </button>
-            </div>
-          </div>
-
-          <!-- Reset Button -->
-          <button
-            w-full py-3
-            border="~ red-500"
-            text="red-500"
-            rounded-lg
-            bg="hover:red-50 dark:hover:red-900/20"
-            transition-colors
-            @click="settingsStore.resetToDefault()"
-          >
-            Reset to Default Settings
-          </button>
+      <div v-else class="p-8 max-w-2xl mx-auto w-full">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+          <h2 class="text-lg font-bold mb-4 dark:text-white">Settings Demo</h2>
+          <p class="text-gray-500">This section is simplified for the test.</p>
         </div>
       </div>
     </main>
-
-    <!-- Instructions Panel -->
-    <aside
-      fixed bottom-4 right-4
-      max-w-sm
-      bg="white dark:gray-800"
-      rounded-lg shadow-lg
-      border="~ gray-200 dark:gray-700"
-      p-4
-      z-50
-    >
-      <h3 font-bold text="gray-900 dark:gray-100" mb-2>
-        Test Instructions
-      </h3>
-      <ul text="sm gray-600 dark:gray-400" space-y-1>
-        <li>• Click status indicator to cycle through states</li>
-        <li>• Test chat interface messaging</li>
-        <li>• Try voice and image input controls</li>
-        <li>• Switch between tabs to test settings</li>
-        <li>• Toggle dark mode with the button in header</li>
-      </ul>
-    </aside>
   </div>
 </template>
 
-<style scoped>
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  aside {
-    left: 16px;
-    right: 16px;
-    max-width: none;
-  }
+<style>
+/* 全局重置，确保高度占满 */
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* 防止最外层出现滚动条 */
 }
 </style>
 
