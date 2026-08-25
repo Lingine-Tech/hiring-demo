@@ -44,13 +44,6 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/auth/login': RouteRecordInfo<
-      '/auth/login',
-      '/auth/login',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/devtools/audio-record': RouteRecordInfo<
       '/devtools/audio-record',
       '/devtools/audio-record',
@@ -79,55 +72,6 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/devtools/context-flow/': RouteRecordInfo<
-      '/devtools/context-flow/',
-      '/devtools/context-flow',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/context-flow/components/context-flow-actions': RouteRecordInfo<
-      '/devtools/context-flow/components/context-flow-actions',
-      '/devtools/context-flow/components/context-flow-actions',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/context-flow/components/context-flow-entry-card': RouteRecordInfo<
-      '/devtools/context-flow/components/context-flow-entry-card',
-      '/devtools/context-flow/components/context-flow-entry-card',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/context-flow/components/context-flow-filters': RouteRecordInfo<
-      '/devtools/context-flow/components/context-flow-filters',
-      '/devtools/context-flow/components/context-flow-filters',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/context-flow/components/context-flow-preview': RouteRecordInfo<
-      '/devtools/context-flow/components/context-flow-preview',
-      '/devtools/context-flow/components/context-flow-preview',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/context-flow/components/context-flow-spark-notify': RouteRecordInfo<
-      '/devtools/context-flow/components/context-flow-spark-notify',
-      '/devtools/context-flow/components/context-flow-spark-notify',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/context-flow/components/context-flow-stream': RouteRecordInfo<
-      '/devtools/context-flow/components/context-flow-stream',
-      '/devtools/context-flow/components/context-flow-stream',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/devtools/gesture-circle': RouteRecordInfo<
       '/devtools/gesture-circle',
       '/devtools/gesture-circle',
@@ -138,34 +82,6 @@ declare module 'vue-router/auto-routes' {
     '/devtools/image': RouteRecordInfo<
       '/devtools/image',
       '/devtools/image',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/markdown-stress': RouteRecordInfo<
-      '/devtools/markdown-stress',
-      '/devtools/markdown-stress',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/model-driver-mediapipe': RouteRecordInfo<
-      '/devtools/model-driver-mediapipe',
-      '/devtools/model-driver-mediapipe',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/performance-playground': RouteRecordInfo<
-      '/devtools/performance-playground',
-      '/devtools/performance-playground',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/performance-visualizer': RouteRecordInfo<
-      '/devtools/performance-visualizer',
-      '/devtools/performance-visualizer',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -194,13 +110,6 @@ declare module 'vue-router/auto-routes' {
     '/devtools/vibrant': RouteRecordInfo<
       '/devtools/vibrant',
       '/devtools/vibrant',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/devtools/websocket-inspector': RouteRecordInfo<
-      '/devtools/websocket-inspector',
-      '/devtools/websocket-inspector',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -250,34 +159,6 @@ declare module 'vue-router/auto-routes' {
     '/settings/airi-card/components/DeleteCardDialog': RouteRecordInfo<
       '/settings/airi-card/components/DeleteCardDialog',
       '/settings/airi-card/components/DeleteCardDialog',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/settings/characters/': RouteRecordInfo<
-      '/settings/characters/',
-      '/settings/characters',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/settings/characters/components/CharacterCreate': RouteRecordInfo<
-      '/settings/characters/components/CharacterCreate',
-      '/settings/characters/components/CharacterCreate',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/settings/characters/components/CharacterDialog': RouteRecordInfo<
-      '/settings/characters/components/CharacterDialog',
-      '/settings/characters/components/CharacterDialog',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/settings/characters/components/CharacterItem': RouteRecordInfo<
-      '/settings/characters/components/CharacterItem',
-      '/settings/characters/components/CharacterItem',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -506,13 +387,6 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/settings/providers/transcription/browser-web-speech-api': RouteRecordInfo<
-      '/settings/providers/transcription/browser-web-speech-api',
-      '/settings/providers/transcription/browser-web-speech-api',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/settings/providers/transcription/comet-api-transcription': RouteRecordInfo<
       '/settings/providers/transcription/comet-api-transcription',
       '/settings/providers/transcription/comet-api-transcription',
@@ -576,61 +450,6 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/v2/': RouteRecordInfo<
-      '/v2/',
-      '/v2',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/v2/settings': RouteRecordInfo<
-      '/v2/settings',
-      '/v2/settings',
-      Record<never, never>,
-      Record<never, never>,
-      | '/v2/settings/'
-      | '/v2/settings/providers'
-      | '/v2/settings/providers/'
-      | '/v2/settings/providers/edit'
-      | '/v2/settings/providers/edit/[providerId]/'
-    >,
-    '/v2/settings/': RouteRecordInfo<
-      '/v2/settings/',
-      '/v2/settings',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/v2/settings/providers': RouteRecordInfo<
-      '/v2/settings/providers',
-      '/v2/settings/providers',
-      Record<never, never>,
-      Record<never, never>,
-      | '/v2/settings/providers/'
-      | '/v2/settings/providers/edit'
-      | '/v2/settings/providers/edit/[providerId]/'
-    >,
-    '/v2/settings/providers/': RouteRecordInfo<
-      '/v2/settings/providers/',
-      '/v2/settings/providers',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/v2/settings/providers/edit': RouteRecordInfo<
-      '/v2/settings/providers/edit',
-      '/v2/settings/providers/edit',
-      Record<never, never>,
-      Record<never, never>,
-      | '/v2/settings/providers/edit/[providerId]/'
-    >,
-    '/v2/settings/providers/edit/[providerId]/': RouteRecordInfo<
-      '/v2/settings/providers/edit/[providerId]/',
-      '/v2/settings/providers/edit/:providerId',
-      { providerId: ParamValue<true> },
-      { providerId: ParamValue<false> },
-      | never
-    >,
   }
 
   /**
@@ -662,12 +481,6 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/auth/login.vue': {
-      routes:
-        | '/auth/login'
-      views:
-        | never
-    }
     'src/pages/devtools/audio-record.vue': {
       routes:
         | '/devtools/audio-record'
@@ -686,51 +499,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/devtools/beat-sync.vue': {
+    '../../packages/stage-pages/src/pages/devtools/beat-sync.vue': {
       routes:
         | '/devtools/beat-sync'
-      views:
-        | never
-    }
-    'src/pages/devtools/context-flow/index.vue': {
-      routes:
-        | '/devtools/context-flow/'
-      views:
-        | never
-    }
-    'src/pages/devtools/context-flow/components/context-flow-actions.vue': {
-      routes:
-        | '/devtools/context-flow/components/context-flow-actions'
-      views:
-        | never
-    }
-    'src/pages/devtools/context-flow/components/context-flow-entry-card.vue': {
-      routes:
-        | '/devtools/context-flow/components/context-flow-entry-card'
-      views:
-        | never
-    }
-    'src/pages/devtools/context-flow/components/context-flow-filters.vue': {
-      routes:
-        | '/devtools/context-flow/components/context-flow-filters'
-      views:
-        | never
-    }
-    'src/pages/devtools/context-flow/components/context-flow-preview.vue': {
-      routes:
-        | '/devtools/context-flow/components/context-flow-preview'
-      views:
-        | never
-    }
-    'src/pages/devtools/context-flow/components/context-flow-spark-notify.vue': {
-      routes:
-        | '/devtools/context-flow/components/context-flow-spark-notify'
-      views:
-        | never
-    }
-    'src/pages/devtools/context-flow/components/context-flow-stream.vue': {
-      routes:
-        | '/devtools/context-flow/components/context-flow-stream'
       views:
         | never
     }
@@ -740,33 +511,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/devtools/image.vue': {
+    '../../packages/stage-pages/src/pages/devtools/image.vue': {
       routes:
         | '/devtools/image'
-      views:
-        | never
-    }
-    'src/pages/devtools/markdown-stress.vue': {
-      routes:
-        | '/devtools/markdown-stress'
-      views:
-        | never
-    }
-    'src/pages/devtools/model-driver-mediapipe.vue': {
-      routes:
-        | '/devtools/model-driver-mediapipe'
-      views:
-        | never
-    }
-    'src/pages/devtools/performance-playground.vue': {
-      routes:
-        | '/devtools/performance-playground'
-      views:
-        | never
-    }
-    'src/pages/devtools/performance-visualizer.vue': {
-      routes:
-        | '/devtools/performance-visualizer'
       views:
         | never
     }
@@ -776,7 +523,7 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/devtools/providers-transcription-realtime-aliyun-nls.vue': {
+    '../../packages/stage-pages/src/pages/devtools/providers-transcription-realtime-aliyun-nls.vue': {
       routes:
         | '/devtools/providers-transcription-realtime-aliyun-nls'
       views:
@@ -788,217 +535,187 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/devtools/vibrant.vue': {
+    '../../packages/stage-pages/src/pages/devtools/vibrant.vue': {
       routes:
         | '/devtools/vibrant'
       views:
         | never
     }
-    'src/pages/devtools/websocket-inspector.vue': {
-      routes:
-        | '/devtools/websocket-inspector'
-      views:
-        | never
-    }
-    'src/pages/settings/index.vue': {
+    '../../packages/stage-pages/src/pages/settings/index.vue': {
       routes:
         | '/settings/'
       views:
         | never
     }
-    'src/pages/settings/airi-card/index.vue': {
+    '../../packages/stage-pages/src/pages/settings/airi-card/index.vue': {
       routes:
         | '/settings/airi-card/'
       views:
         | never
     }
-    'src/pages/settings/airi-card/components/CardCreate.vue': {
+    '../../packages/stage-pages/src/pages/settings/airi-card/components/CardCreate.vue': {
       routes:
         | '/settings/airi-card/components/CardCreate'
       views:
         | never
     }
-    'src/pages/settings/airi-card/components/CardCreationDialog.vue': {
+    '../../packages/stage-pages/src/pages/settings/airi-card/components/CardCreationDialog.vue': {
       routes:
         | '/settings/airi-card/components/CardCreationDialog'
       views:
         | never
     }
-    'src/pages/settings/airi-card/components/CardDetailDialog.vue': {
+    '../../packages/stage-pages/src/pages/settings/airi-card/components/CardDetailDialog.vue': {
       routes:
         | '/settings/airi-card/components/CardDetailDialog'
       views:
         | never
     }
-    'src/pages/settings/airi-card/components/CardListItem.vue': {
+    '../../packages/stage-pages/src/pages/settings/airi-card/components/CardListItem.vue': {
       routes:
         | '/settings/airi-card/components/CardListItem'
       views:
         | never
     }
-    'src/pages/settings/airi-card/components/DeleteCardDialog.vue': {
+    '../../packages/stage-pages/src/pages/settings/airi-card/components/DeleteCardDialog.vue': {
       routes:
         | '/settings/airi-card/components/DeleteCardDialog'
       views:
         | never
     }
-    'src/pages/settings/characters/index.vue': {
-      routes:
-        | '/settings/characters/'
-      views:
-        | never
-    }
-    'src/pages/settings/characters/components/CharacterCreate.vue': {
-      routes:
-        | '/settings/characters/components/CharacterCreate'
-      views:
-        | never
-    }
-    'src/pages/settings/characters/components/CharacterDialog.vue': {
-      routes:
-        | '/settings/characters/components/CharacterDialog'
-      views:
-        | never
-    }
-    'src/pages/settings/characters/components/CharacterItem.vue': {
-      routes:
-        | '/settings/characters/components/CharacterItem'
-      views:
-        | never
-    }
-    'src/pages/settings/data/index.vue': {
+    '../../packages/stage-pages/src/pages/settings/data/index.vue': {
       routes:
         | '/settings/data/'
       views:
         | never
     }
-    'src/pages/settings/memory/index.vue': {
+    '../../packages/stage-pages/src/pages/settings/memory/index.vue': {
       routes:
         | '/settings/memory/'
       views:
         | never
     }
-    'src/pages/settings/models/index.vue': {
+    '../../packages/stage-pages/src/pages/settings/models/index.vue': {
       routes:
         | '/settings/models/'
       views:
         | never
     }
-    'src/pages/settings/modules/index.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/index.vue': {
       routes:
         | '/settings/modules/'
       views:
         | never
     }
-    'src/pages/settings/modules/beat-sync.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/beat-sync.vue': {
       routes:
         | '/settings/modules/beat-sync'
       views:
         | never
     }
-    'src/pages/settings/modules/consciousness.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/consciousness.vue': {
       routes:
         | '/settings/modules/consciousness'
       views:
         | never
     }
-    'src/pages/settings/modules/gaming-factorio.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/gaming-factorio.vue': {
       routes:
         | '/settings/modules/gaming-factorio'
       views:
         | never
     }
-    'src/pages/settings/modules/gaming-minecraft.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/gaming-minecraft.vue': {
       routes:
         | '/settings/modules/gaming-minecraft'
       views:
         | never
     }
-    'src/pages/settings/modules/hearing.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/hearing.vue': {
       routes:
         | '/settings/modules/hearing'
       views:
         | never
     }
-    'src/pages/settings/modules/memory-long-term.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/memory-long-term.vue': {
       routes:
         | '/settings/modules/memory-long-term'
       views:
         | never
     }
-    'src/pages/settings/modules/memory-short-term.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/memory-short-term.vue': {
       routes:
         | '/settings/modules/memory-short-term'
       views:
         | never
     }
-    'src/pages/settings/modules/messaging-discord.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/messaging-discord.vue': {
       routes:
         | '/settings/modules/messaging-discord'
       views:
         | never
     }
-    'src/pages/settings/modules/speech.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/speech.vue': {
       routes:
         | '/settings/modules/speech'
       views:
         | never
     }
-    'src/pages/settings/modules/vision.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/vision.vue': {
       routes:
         | '/settings/modules/vision'
       views:
         | never
     }
-    'src/pages/settings/modules/x.vue': {
+    '../../packages/stage-pages/src/pages/settings/modules/x.vue': {
       routes:
         | '/settings/modules/x'
       views:
         | never
     }
-    'src/pages/settings/providers/index.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/index.vue': {
       routes:
         | '/settings/providers/'
       views:
         | never
     }
-    'src/pages/settings/providers/chat/[providerId].vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/chat/[providerId].vue': {
       routes:
         | '/settings/providers/chat/[providerId]'
       views:
         | never
     }
-    'src/pages/settings/providers/chat/azure-ai-foundry.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/chat/azure-ai-foundry.vue': {
       routes:
         | '/settings/providers/chat/azure-ai-foundry'
       views:
         | never
     }
-    'src/pages/settings/providers/chat/cloudflare-workers-ai.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/chat/cloudflare-workers-ai.vue': {
       routes:
         | '/settings/providers/chat/cloudflare-workers-ai'
       views:
         | never
     }
-    'src/pages/settings/providers/chat/lm-studio.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/chat/lm-studio.vue': {
       routes:
         | '/settings/providers/chat/lm-studio'
       views:
         | never
     }
-    'src/pages/settings/providers/chat/ollama.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/chat/ollama.vue': {
       routes:
         | '/settings/providers/chat/ollama'
       views:
         | never
     }
-    'src/pages/settings/providers/speech/alibaba-cloud-model-studio.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/alibaba-cloud-model-studio.vue': {
       routes:
         | '/settings/providers/speech/alibaba-cloud-model-studio'
       views:
         | never
     }
-    'src/pages/settings/providers/speech/comet-api-speech.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/comet-api-speech.vue': {
       routes:
         | '/settings/providers/speech/comet-api-speech'
       views:
@@ -1010,79 +727,73 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/settings/providers/speech/elevenlabs.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/elevenlabs.vue': {
       routes:
         | '/settings/providers/speech/elevenlabs'
       views:
         | never
     }
-    'src/pages/settings/providers/speech/index-tts-vllm.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/index-tts-vllm.vue': {
       routes:
         | '/settings/providers/speech/index-tts-vllm'
       views:
         | never
     }
-    'src/pages/settings/providers/speech/microsoft-speech.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/microsoft-speech.vue': {
       routes:
         | '/settings/providers/speech/microsoft-speech'
       views:
         | never
     }
-    'src/pages/settings/providers/speech/openai-audio-speech.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/openai-audio-speech.vue': {
       routes:
         | '/settings/providers/speech/openai-audio-speech'
       views:
         | never
     }
-    'src/pages/settings/providers/speech/openai-compatible-audio-speech.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/openai-compatible-audio-speech.vue': {
       routes:
         | '/settings/providers/speech/openai-compatible-audio-speech'
       views:
         | never
     }
-    'src/pages/settings/providers/speech/player2-speech.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/player2-speech.vue': {
       routes:
         | '/settings/providers/speech/player2-speech'
       views:
         | never
     }
-    'src/pages/settings/providers/speech/volcengine.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/speech/volcengine.vue': {
       routes:
         | '/settings/providers/speech/volcengine'
       views:
         | never
     }
-    'src/pages/settings/providers/transcription/aliyun-nls-transcription.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/transcription/aliyun-nls-transcription.vue': {
       routes:
         | '/settings/providers/transcription/aliyun-nls-transcription'
       views:
         | never
     }
-    'src/pages/settings/providers/transcription/browser-web-speech-api.vue': {
-      routes:
-        | '/settings/providers/transcription/browser-web-speech-api'
-      views:
-        | never
-    }
-    'src/pages/settings/providers/transcription/comet-api-transcription.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/transcription/comet-api-transcription.vue': {
       routes:
         | '/settings/providers/transcription/comet-api-transcription'
       views:
         | never
     }
-    'src/pages/settings/providers/transcription/openai-audio-transcription.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/transcription/openai-audio-transcription.vue': {
       routes:
         | '/settings/providers/transcription/openai-audio-transcription'
       views:
         | never
     }
-    'src/pages/settings/providers/transcription/openai-compatible-audio-transcription.vue': {
+    '../../packages/stage-pages/src/pages/settings/providers/transcription/openai-compatible-audio-transcription.vue': {
       routes:
         | '/settings/providers/transcription/openai-compatible-audio-transcription'
       views:
         | never
     }
-    'src/pages/settings/scene/index.vue': {
+    '../../packages/stage-pages/src/pages/settings/scene/index.vue': {
       routes:
         | '/settings/scene/'
       views:
@@ -1094,7 +805,7 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/settings/system/color-scheme.vue': {
+    '../../packages/stage-pages/src/pages/settings/system/color-scheme.vue': {
       routes:
         | '/settings/system/color-scheme'
       views:
@@ -1106,7 +817,7 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/settings/system/general.vue': {
+    '../../packages/stage-pages/src/pages/settings/system/general.vue': {
       routes:
         | '/settings/system/general'
       views:
@@ -1115,57 +826,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/test.vue': {
       routes:
         | 'TestPage'
-      views:
-        | never
-    }
-    'src/pages/v2/index.vue': {
-      routes:
-        | '/v2/'
-      views:
-        | never
-    }
-    'src/pages/v2/settings.vue': {
-      routes:
-        | '/v2/settings'
-        | '/v2/settings/'
-        | '/v2/settings/providers'
-        | '/v2/settings/providers/'
-        | '/v2/settings/providers/edit'
-        | '/v2/settings/providers/edit/[providerId]/'
-      views:
-        | 'default'
-    }
-    'src/pages/v2/settings/index.vue': {
-      routes:
-        | '/v2/settings/'
-      views:
-        | never
-    }
-    'src/pages/v2/settings/providers.vue': {
-      routes:
-        | '/v2/settings/providers'
-        | '/v2/settings/providers/'
-        | '/v2/settings/providers/edit'
-        | '/v2/settings/providers/edit/[providerId]/'
-      views:
-        | 'default'
-    }
-    'src/pages/v2/settings/providers/index.vue': {
-      routes:
-        | '/v2/settings/providers/'
-      views:
-        | never
-    }
-    'src/pages/v2/settings/providers/edit.vue': {
-      routes:
-        | '/v2/settings/providers/edit'
-        | '/v2/settings/providers/edit/[providerId]/'
-      views:
-        | 'default'
-    }
-    'src/pages/v2/settings/providers/edit/[providerId]/index.vue': {
-      routes:
-        | '/v2/settings/providers/edit/[providerId]/'
       views:
         | never
     }
