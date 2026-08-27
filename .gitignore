@@ -14,6 +14,11 @@ dist/
 .nuxt/
 .output/
 
+# Local tool metadata (not part of the project)
+.codegraph/
+.omo/
+.spec-workflow/
+
 # Environment files
 .env
 .env.local
