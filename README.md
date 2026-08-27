@@ -1,8 +1,7 @@
 # 前端开发能力测试 · 任务说明书
 
 > 基于 [AIRI / proj-airi](https://github.com/moeru-ai/AIRI) 的 stage-web 裁剪，遵循原项目 MIT License。
->
-> **面试须知已并入本文档，不再单独提供 INTERVIEW_NOTES。**
+
 
 ---
 
